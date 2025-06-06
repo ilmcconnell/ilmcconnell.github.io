@@ -9,9 +9,4 @@ minima:
     - title: GitHub
       icon: github
       url: "https://github.com/ilmcconnell"
-    - title: ORCID
-      icon: orcid
-      url: "https://orcid.org/0000-0002-9982-7088"
-    - title: LinkedIn
-      icon: linkedin
-      url: "https://www.linkedin.com/in/iain-mcconnell/"
+  

@@ -1,7 +1,7 @@
 #theme: minima
 remote_theme: "jekyll/minima@c6e74bbfe7a0d0ae8c806cb38b012d01b25b1f7d"
-title: Iain
-description: Useful and/or interesting things I've learned
+title: Iain McConnell
+description: "Useful and/or interesting things I've learned"
 author: ilmcconnell
 minima:
   nav_pages:

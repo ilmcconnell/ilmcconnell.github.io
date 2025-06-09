@@ -6,8 +6,7 @@ author: ilmcconnell
 minima:
   nav_pages:
     - about.md
-  social_links:
-    - title: GitHub
-      icon: github
-      url: "https://github.com/ilmcconnell"
+
+github_username: ilmcconnell
+rss: rss
   

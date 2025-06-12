@@ -1,13 +1,14 @@
 #theme: minima
 remote_theme: "jekyll/minima@c6e74bbfe7a0d0ae8c806cb38b012d01b25b1f7d"
-title: Iain McConnell
+title: 
 description: "Useful and/or interesting things I've learned"
-author: ilmcconnell
+author: Iain McConnell
 minima:
   nav_pages:
     - about.md
 
 github_username: ilmcconnell
-orcid: "0000-0002-9982-7088"
+linkedin_username: iain-mcconnell
+orcid: 0000-0002-9982-7088
 rss: rss
   

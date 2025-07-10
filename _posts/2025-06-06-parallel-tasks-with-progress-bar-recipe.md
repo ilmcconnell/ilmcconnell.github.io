@@ -1,4 +1,4 @@
-Parallel-process computationally-bound functions over an iterable in python with a progress bar.
+# Parallel-process computationally-bound functions over an iterable in python with a progress bar.
 
 Usually you can do this in a very straightforward way:
 ```python

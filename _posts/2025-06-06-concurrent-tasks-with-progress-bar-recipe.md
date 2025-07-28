@@ -19,28 +19,33 @@ When you're iterating over large amounts of data, unexpected conditions can thro
 ```python
 import os
 import logging
+import traceback
+import concurrent.futures
 from tqdm.auto import tqdm
-from typing import Any, Callable, Iterable
+from typing import Any, List
+from functools import partial
+from collections.abc import Callable, Iterable
+from concurrent.futures import ProcessPoolExecutor #, ThreadPoolExecutor
 
 
 logger = logging.getLogger(__name__)
 
 
 def my_function(chunk: List[int], arg1: int, arg2: int, arg3: int) -> List[int]:
-  """
-  function that does the actual work you're interested in doing concurrently.
-  NB this is defined to iterate on a chunk i.e. a list of items - easier to
-  control chunksize and interprocess communication overhead this way.
-  """
-  processed_items = []
-  for item in chunk:
+    """
+    function that does the actual work you're interested in doing concurrently.
+    NB this is defined to iterate on a chunk i.e. a list of items - easier to
+    control chunksize and interprocess communication overhead this way.
+    """
+    processed_items = []
+    for item in chunk:
     processed_item = sum([item * arg1, arg2, arg3])
     processed_items.append(processed_item)
-  return processed_items
+    return processed_items
 
 
 def parallel_process_my_function_and_capture_errors(
-    fn: Callable[[Any, ...], Any],
+    fn: Callable[..., Any],
     static_function_args: dict[str, Any],
     iterable: Iterable[Any],
     chunksize: int = 10,
@@ -71,15 +76,16 @@ def parallel_process_my_function_and_capture_errors(
 
 
 if __name__ == "__main__":
-  my_static_function_args = dict(
-    arg2=10,
-    arg3=100,
-  )
-  my_iterable = list(range(10_000)) 
+    my_static_function_args = dict(
+        arg2=10,
+        arg3=100,
+    )
+    my_iterable = list(range(10_000)) 
 
-  results = parallel_process_my_function_and_capture_errors(
-    fn=my_function,
-    static_function_args=my_static_function_args,
-    iterable=my_iterable,
-  )
+    results = parallel_process_my_function_and_capture_errors(
+        fn=my_function,
+        static_function_args=my_static_function_args,
+        iterable=my_iterable,
+    )
+
 ```

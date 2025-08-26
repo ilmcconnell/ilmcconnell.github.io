@@ -10,8 +10,8 @@ def my_function(arg: Any):
 
 iterable = list(range(100))
 
-# results = thread_map(my_function, iterable, max_workers=4, chunksize=1)
-results = process_map(my_function, iterable, max_workers=4, chunksize=10)
+# results = thread_map(my_function, iterable, max_workers=4, chunksize=1)  # I/O bound tasks
+results = process_map(my_function, iterable, max_workers=4, chunksize=10)  # Compute bound tasks
 ```
 If your iterable is very long, or contains large objects (maybe these could be pre-computed?), it might speed things up to increase chunksize to cut down on the relative contribution of inter-process communication.
 

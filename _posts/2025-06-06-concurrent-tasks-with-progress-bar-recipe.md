@@ -15,7 +15,7 @@ results = process_map(my_function, iterable, max_workers=4, chunksize=10)
 ```
 If your iterable is very long, or contains large objects (maybe these could be pre-computed?), it might speed things up to increase chunksize to cut down on the relative contribution of inter-process communication.
 
-NB: If you're doing this in a notebook, you will need to import your my_function rather than define it in the notebook. i.e. create a my_lib.py file, define my_function in my_lib.py, and then import my_lib.my_function into your notebook. You know this is the problem if you're trying the above and you're getting an Attribute error like ```AttributeError: can't get attribute 'my_function' on <module '__main__' (built-in)>```.
+NB: If you're doing this in a notebook, you will need to import your my_function rather than define it in the notebook. i.e. create a my_lib.py file, define my_function in my_lib.py, and then import my_lib.my_function into your notebook. You know this is the problem if you're trying the above and you're getting an ```AttributeError``` such as ```AttributeError: can't get attribute 'my_function' on <module '__main__' (built-in)>```.
 
 When you're iterating over large amounts of data, unexpected conditions can throw exceptions which might stall processing. Ideally you can capture those errors to see what is going wrong, but keep your processing going for the majority of cases. If you want to capture errors and the traceback in those parallel processes you have to unpack a little more.
 ```python

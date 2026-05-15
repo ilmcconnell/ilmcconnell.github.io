@@ -1,7 +1,7 @@
 #theme: minima
 remote_theme: "jekyll/minima@c6e74bbfe7a0d0ae8c806cb38b012d01b25b1f7d"
 title: "Residual"
-description: "			Useful and/or interesting things"
+description: ""
 author: Iain McConnell
 minima:
   nav_pages:
